@@ -1,0 +1,24 @@
+# QEMU images and generated media
+images/*.img
+images/*.qcow2
+images/*.iso
+
+# Keep cloud-init templates if you want to version them
+# (meta-data and user-data are plain text and useful)
+# images/meta-data
+# images/user-data
+
+# Kernel module build artifacts
+guest/vballoon_lab/*.o
+guest/vballoon_lab/*.ko
+guest/vballoon_lab/*.mod
+guest/vballoon_lab/*.mod.c
+guest/vballoon_lab/*.mod.o
+guest/vballoon_lab/*.order
+guest/vballoon_lab/Module.symvers
+guest/vballoon_lab/.*.cmd
+guest/vballoon_lab/.*.d
+guest/vballoon_lab/.tmp_versions/
+
+# Local scratch
+PROJECT_INVENTORY.txt

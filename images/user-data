@@ -1,0 +1,11 @@
+#cloud-config
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+    plain_text_passwd: ubuntu
+    shell: /bin/bash
+ssh_pwauth: true
+chpasswd:
+  expire: false
+package_update: true
