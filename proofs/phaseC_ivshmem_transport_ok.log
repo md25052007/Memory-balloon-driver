@@ -1,0 +1,10 @@
+=== Phase C ivshmem transport proof ===
+Mon Apr 20 02:51:52 AM IST 2026
+
+[host->guest read]
+HEX: 50 48 41 53 45 43 5f 4f 4b 5f 31 32 33 34 00 00 ...
+ASCII: PHASEC_OK_1234
+
+[guest->host readback]
+HOST_ASCII: GUEST_TO_HOST_OK
+HOST_HEX: 47 55 45 53 54 5f 54 4f 5f 48 4f 53 54 5f 4f 4b ...

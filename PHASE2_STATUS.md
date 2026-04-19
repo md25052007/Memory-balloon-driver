@@ -103,3 +103,22 @@ Add host-daemon + shared-memory control path on top of working Phase 1 virtio ba
   - ack_seq remained 25
 - Interpretation:
   - replay-safe no-op behavior is working (no unnecessary command publish).
+
+### 2026-04-20 02:xx IST (Phase C Transport Proof via ivshmem)
+- QEMU `ivshmem-plain` was attached successfully via QMP (`object-add` + `device_add`) using a pre-created PCIe root port.
+- Guest detection:
+  - `01:00.0 RAM memory [0500]: Red Hat, Inc. Inter-VM shared memory [1af4:1110]`
+- BAR mapping evidence:
+  - `/sys/bus/pci/devices/0000:01:00.0/resource2` (1 MiB) present.
+- Host -> Guest proof:
+  - Host wrote marker `PHASEC_OK_1234` into `/dev/shm/balloon_ivshmem.bin`.
+  - Guest read same marker by `mmap()` on `resource2`.
+- Guest -> Host proof:
+  - Guest wrote marker `GUEST_TO_HOST_OK` into mapped BAR offset.
+  - Host readback from `/dev/shm/balloon_ivshmem.bin` matched.
+- Proof:
+  - `proofs/phaseC_ivshmem_transport_ok.log`
+
+Interpretation:
+- Real shared-memory transport visible to guest is now proven.
+- This completes Phase C transport foundation; next substep is wiring control fields onto this region for daemon/driver path.
