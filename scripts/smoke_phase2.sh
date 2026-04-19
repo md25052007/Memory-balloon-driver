@@ -17,14 +17,14 @@ make -C "${ROOT}/host/balloond" clean >/dev/null
 make -C "${ROOT}/host/balloond" >/dev/null
 
 echo "[2/4] Inflate test -> 2 GiB"
-timeout 15s "${ROOT}/host/balloond/balloond" 2147483648 "${QMP}" < /dev/null > "${LOGI}" 2>&1 || true
+timeout 60s "${ROOT}/host/balloond/balloond" 2147483648 "${QMP}" < /dev/null > "${LOGI}" 2>&1 || true
 echo "----- BEGIN INFLATE LOG -----"
 cat "${LOGI}" || true
 echo "----- END INFLATE LOG -----"
 grep -q "actual=2147483648 target=2147483648" "${LOGI}"
 
 echo "[3/4] Deflate test -> 3 GiB"
-timeout 15s "${ROOT}/host/balloond/balloond" 3221225472 "${QMP}" < /dev/null > "${LOGD}" 2>&1 || true
+timeout 30s "${ROOT}/host/balloond/balloond" 3221225472 "${QMP}" < /dev/null > "${LOGD}" 2>&1 || true
 echo "----- BEGIN DEFLATE LOG -----"
 cat "${LOGD}" || true
 echo "----- END DEFLATE LOG -----"

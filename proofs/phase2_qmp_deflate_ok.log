@@ -1,16 +1,32 @@
-2026-04-19 20:32:26 [INFO] new target_bytes=3221225472 cmd_seq=10
-2026-04-19 20:32:26 [INFO] actual=2170552320 target=3221225472 cmd_seq=10 ack_seq=9 status=0 err=0
-2026-04-19 20:32:27 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:28 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:29 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:30 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:32 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:33 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:34 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:35 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:36 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:37 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:38 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:39 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:40 [INFO] actual=3221225472 target=3221225472 cmd_seq=10 ack_seq=10 status=0 err=0
-2026-04-19 20:32:41 [INFO] stopping
+2026-04-19 22:01:32 [INFO] new target_bytes=3221225472 cmd_seq=14
+2026-04-19 22:01:32 [INFO] actual=2147483648 target=3221225472 cmd_seq=14 ack_seq=13 status=0 err=0
+2026-04-19 22:01:33 [INFO] actual=2597826560 target=3221225472 cmd_seq=14 ack_seq=13 status=0 err=0
+2026-04-19 22:01:34 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:35 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:36 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:37 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:38 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:39 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:40 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:41 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:42 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:43 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:44 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:45 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:46 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:47 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:48 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:49 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:50 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:51 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:52 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:53 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:54 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:55 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:56 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:58 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:01:59 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:02:00 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:02:01 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:02:02 [INFO] actual=3221225472 target=3221225472 cmd_seq=14 ack_seq=14 status=0 err=0
+2026-04-19 22:02:02 [INFO] stopping

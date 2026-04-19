@@ -7,13 +7,33 @@
 #include <linux/slab.h>
 #include <linux/spinlock.h>
 #include <linux/scatterlist.h>
+#include <linux/sysinfo.h>
 #include <linux/virtio.h>
 #include <linux/virtio_ids.h>
 #include <linux/virtio_config.h>
+#include <linux/jiffies.h>
 #include <uapi/linux/virtio_balloon.h>
 
 #define DRV_NAME "vballoon_lab"
 #define ADJUST_BATCH 32
+
+/*
+ * Phase-3 starter knobs:
+ * - pressure_enable: turn pressure-driven deflate on/off
+ * - pressure_min_free_mb: if free RAM falls below this, prioritize deflate
+ * - pressure_log_interval_ms: rate-limit pressure logs
+ */
+static bool pressure_enable = true;
+module_param(pressure_enable, bool, 0644);
+MODULE_PARM_DESC(pressure_enable, "Enable pressure-triggered deflate");
+
+static unsigned int pressure_min_free_mb = 256;
+module_param(pressure_min_free_mb, uint, 0644);
+MODULE_PARM_DESC(pressure_min_free_mb, "Free RAM threshold (MB) to trigger pressure deflate");
+
+static unsigned int pressure_log_interval_ms = 2000;
+module_param(pressure_log_interval_ms, uint, 0644);
+MODULE_PARM_DESC(pressure_log_interval_ms, "Min interval for pressure logs (ms)");
 
 struct vb_page {
 	struct page *page;
@@ -38,7 +58,24 @@ struct vb_lab {
 	u32 pending_inflate;
 	u32 pending_deflate;
 	bool stop;
+	unsigned long last_pressure_log_jiffies;
 };
+
+static bool vb_under_pressure(void)
+{
+	struct sysinfo si;
+	u64 free_kb;
+	u64 threshold_kb;
+
+	if (!pressure_enable)
+		return false;
+
+	si_meminfo(&si);
+	free_kb = (u64)si.freeram * (PAGE_SIZE / 1024);
+	threshold_kb = (u64)pressure_min_free_mb * 1024ULL;
+
+	return free_kb < threshold_kb;
+}
 
 static u32 vb_read_target(struct vb_lab *vb)
 {
@@ -197,12 +234,28 @@ static int vb_worker(void *arg)
 		unsigned long flags;
 		u32 pending_inflate;
 		int progress = 0;
+		bool pressure = vb_under_pressure();
 
 		spin_lock_irqsave(&vb->lock, flags);
 		pending_inflate = vb->pending_inflate;
 		spin_unlock_irqrestore(&vb->lock, flags);
 
-		if (eff < target) {
+		/*
+		 * Under pressure, we prioritize returning memory to guest first,
+		 * even if host target asks for a larger balloon.
+		 */
+		if (pressure) {
+			if (!vb_deflate_one(vb)) {
+				progress = 1;
+				if (time_after(jiffies,
+					       vb->last_pressure_log_jiffies +
+					       msecs_to_jiffies(pressure_log_interval_ms))) {
+					pr_info(DRV_NAME ": pressure deflate (free < %u MB)\n",
+						pressure_min_free_mb);
+					vb->last_pressure_log_jiffies = jiffies;
+				}
+			}
+		} else if (eff < target) {
 			if (!pending_inflate && !vb_inflate_one(vb))
 				progress = 1;
 		} else if (eff > target) {
