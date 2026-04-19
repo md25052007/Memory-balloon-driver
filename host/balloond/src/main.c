@@ -17,6 +17,25 @@ static void on_sigint(int sig) {
     g_stop = 1;
 }
 
+static const char *resolve_default_qmp_sock(char *buf, size_t buf_sz) {
+    const char *env_sock = getenv("BALLOOND_QMP_SOCK");
+    const char *home = getenv("HOME");
+    int n;
+
+    if (env_sock && env_sock[0] != '\0') {
+        return env_sock;
+    }
+
+    if (home && home[0] != '\0') {
+        n = snprintf(buf, buf_sz, "%s/virtio-balloon/logs/qmp.sock", home);
+        if (n > 0 && (size_t)n < buf_sz) {
+            return buf;
+        }
+    }
+
+    return "./logs/qmp.sock";
+}
+
 static void publish_target(struct balloond_shm *shm, const char *qmp_sock, uint64_t target) {
     if (shm->ack_seq > shm->cmd_seq) {
         balloond_log_error("protocol violation: ack_seq(%llu) > cmd_seq(%llu)",
@@ -45,7 +64,8 @@ static void publish_target(struct balloond_shm *shm, const char *qmp_sock, uint6
 
 int main(int argc, char **argv) {
     uint64_t target = 2147483648ULL; /* 2 GiB default */
-    const char *qmp_sock = "/home/maithreya/virtio-balloon/logs/qmp.sock";
+    char qmp_default[PATH_MAX];
+    const char *qmp_sock = resolve_default_qmp_sock(qmp_default, sizeof(qmp_default));
     struct balloond_shm *shm = NULL;
     int interactive = isatty(STDIN_FILENO);
     uint64_t observed_actual = 0;
