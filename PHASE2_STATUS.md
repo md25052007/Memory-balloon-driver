@@ -92,3 +92,14 @@ Add host-daemon + shared-memory control path on top of working Phase 1 virtio ba
 - Notes:
   - pressure path remained enabled (`pressure_enable=1`) with tuned baseline threshold (`pressure_min_free_mb=128`)
   - script diagnostics and strict convergence checks are active
+
+### 2026-04-20 02:04 IST (Phase B Replay Guard Validation)
+- Command:
+  - timeout 8s ./host/balloond/balloond 3221225472 /home/maithreya/virtio-balloon/logs/qmp.sock < /dev/null | tee proofs/phaseB_replay_guard.log
+- Result: PASS
+- Evidence:
+  - daemon logged: target unchanged and no pending cmd ... skipping publish
+  - cmd_seq remained 25
+  - ack_seq remained 25
+- Interpretation:
+  - replay-safe no-op behavior is working (no unnecessary command publish).

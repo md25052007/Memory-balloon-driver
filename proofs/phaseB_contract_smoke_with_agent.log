@@ -1,3 +1,6 @@
+[1/4] Build host daemon
+[2/4] Inflate test -> 2 GiB
+----- BEGIN INFLATE LOG -----
 2026-04-20 02:01:12 [INFO] new target_bytes=2147483648 cmd_seq=24
 2026-04-20 02:01:12 [INFO] actual=3221225472 target=2147483648 cmd_seq=24 ack_seq=23 shm_status=0 shm_err=0 qmp_err=0
 2026-04-20 02:01:13 [INFO] actual=3221192704 target=2147483648 cmd_seq=24 ack_seq=24 shm_status=0 shm_err=0 qmp_err=0
@@ -58,3 +61,38 @@
 2026-04-20 02:02:10 [INFO] actual=2147483648 target=2147483648 cmd_seq=24 ack_seq=24 shm_status=0 shm_err=0 qmp_err=0
 2026-04-20 02:02:11 [INFO] actual=2147483648 target=2147483648 cmd_seq=24 ack_seq=24 shm_status=0 shm_err=0 qmp_err=0
 2026-04-20 02:02:12 [INFO] stopping
+----- END INFLATE LOG -----
+[3/4] Deflate test -> 3 GiB
+----- BEGIN DEFLATE LOG -----
+2026-04-20 02:02:12 [INFO] new target_bytes=3221225472 cmd_seq=25
+2026-04-20 02:02:12 [INFO] actual=2147483648 target=3221225472 cmd_seq=25 ack_seq=24 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:13 [INFO] actual=2165735424 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:14 [INFO] actual=2982785024 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:15 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:16 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:18 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:19 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:20 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:21 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:22 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:23 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:24 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:25 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:27 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:28 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:29 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:30 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:31 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:32 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:33 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:34 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:35 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:36 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:38 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:39 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:40 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:41 [INFO] actual=3221225472 target=3221225472 cmd_seq=25 ack_seq=25 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 02:02:42 [INFO] stopping
+----- END DEFLATE LOG -----
+[4/4] Save proofs
+smoke_phase2: completed (real QMP path)

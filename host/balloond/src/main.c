@@ -18,6 +18,19 @@ static void on_sigint(int sig) {
 }
 
 static void publish_target(struct balloond_shm *shm, const char *qmp_sock, uint64_t target) {
+    if (shm->ack_seq > shm->cmd_seq) {
+        balloond_log_error("protocol violation: ack_seq(%llu) > cmd_seq(%llu)",
+                           (unsigned long long)shm->ack_seq,
+                           (unsigned long long)shm->cmd_seq);
+        return;
+    }
+
+    if (target == shm->target_bytes && shm->cmd_seq == shm->ack_seq) {
+        balloond_log_info("target unchanged and no pending cmd (target=%llu), skipping publish",
+                          (unsigned long long)target);
+        return;
+    }
+
     shm->target_bytes = target;
     shm->cmd_seq++;
 
@@ -26,8 +39,6 @@ static void publish_target(struct balloond_shm *shm, const char *qmp_sock, uint6
                           (unsigned long long)shm->target_bytes,
                           (unsigned long long)shm->cmd_seq);
     } else {
-        shm->status = 1;
-        shm->last_error = (uint32_t)errno;
         balloond_log_error("qmp_set_target_bytes failed (errno=%d)", errno);
     }
 }
@@ -37,6 +48,8 @@ int main(int argc, char **argv) {
     const char *qmp_sock = "/home/maithreya/virtio-balloon/logs/qmp.sock";
     struct balloond_shm *shm = NULL;
     int interactive = isatty(STDIN_FILENO);
+    uint64_t observed_actual = 0;
+    int qmp_err = 0;
 
     if (argc > 1) {
         target = strtoull(argv[1], NULL, 10);
@@ -66,24 +79,20 @@ int main(int argc, char **argv) {
         uint64_t actual = 0;
 
         if (qmp_query_actual_bytes(qmp_sock, &actual) == 0) {
-            shm->actual_bytes = actual;
-            if (shm->actual_bytes == shm->target_bytes) {
-                shm->ack_seq = shm->cmd_seq;
-            }
-            shm->status = 0;
-            shm->last_error = 0;
+            observed_actual = actual;
+            qmp_err = 0;
         } else {
-            shm->status = 1;
-            shm->last_error = (uint32_t)errno;
+            qmp_err = errno;
         }
 
-        balloond_log_info("actual=%llu target=%llu cmd_seq=%llu ack_seq=%llu status=%u err=%u",
-                          (unsigned long long)shm->actual_bytes,
+        balloond_log_info("actual=%llu target=%llu cmd_seq=%llu ack_seq=%llu shm_status=%u shm_err=%u qmp_err=%d",
+                          (unsigned long long)observed_actual,
                           (unsigned long long)shm->target_bytes,
                           (unsigned long long)shm->cmd_seq,
                           (unsigned long long)shm->ack_seq,
                           shm->status,
-                          shm->last_error);
+                          shm->last_error,
+                          qmp_err);
 
         if (interactive) {
             unsigned long long in_target = ULLONG_MAX;
