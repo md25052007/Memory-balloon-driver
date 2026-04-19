@@ -1,0 +1,13 @@
+2026-04-20 05:14:23 [INFO] target unchanged and no pending cmd (target=2147483648), skipping publish
+2026-04-20 05:14:23 [INFO] actual=3039559680 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:24 [INFO] actual=2975141888 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:25 [INFO] actual=2911862784 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:26 [INFO] actual=2848382976 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:27 [INFO] actual=2785148928 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:28 [INFO] actual=2719563776 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:29 [INFO] actual=2655039488 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:30 [INFO] actual=2589155328 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:31 [INFO] actual=2508775424 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:33 [INFO] actual=2266636288 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:34 [INFO] actual=2265595904 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:35 [INFO] actual=2309566464 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0

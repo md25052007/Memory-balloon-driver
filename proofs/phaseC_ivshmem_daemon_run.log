@@ -1,0 +1,7 @@
+2026-04-20 05:14:17 [INFO] new target_bytes=2147483648 cmd_seq=7
+2026-04-20 05:14:17 [INFO] actual=3221225472 target=2147483648 cmd_seq=7 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:18 [INFO] actual=3221213184 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:19 [INFO] actual=3221188608 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:20 [INFO] actual=3221172224 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:21 [INFO] actual=3161636864 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:22 [INFO] actual=3100925952 target=2147483648 cmd_seq=7 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0

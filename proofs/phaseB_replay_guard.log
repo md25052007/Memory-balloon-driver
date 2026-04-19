@@ -1,0 +1,9 @@
+2026-04-20 05:14:09 [INFO] target unchanged and no pending cmd (target=3221225472), skipping publish
+2026-04-20 05:14:09 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:10 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:11 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:12 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:13 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:14 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:15 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:16 [INFO] actual=3221225472 target=3221225472 cmd_seq=6 ack_seq=6 shm_status=0 shm_err=0 qmp_err=0

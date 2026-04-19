@@ -1,0 +1,12 @@
+2026-04-20 05:14:36 [INFO] new target_bytes=3221225472 cmd_seq=8
+2026-04-20 05:14:36 [INFO] actual=2306154496 target=3221225472 cmd_seq=8 ack_seq=7 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:37 [INFO] actual=2856284160 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:38 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:39 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:40 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:41 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:42 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:43 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:44 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:45 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:14:46 [INFO] actual=3221225472 target=3221225472 cmd_seq=8 ack_seq=8 shm_status=0 shm_err=0 qmp_err=0

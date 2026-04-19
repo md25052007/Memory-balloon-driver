@@ -1,0 +1,18 @@
+2026-04-20 05:17:19 [INFO] target unchanged and no pending cmd (target=2147483648), skipping publish
+2026-04-20 05:17:19 [INFO] actual=3214680064 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:20 [INFO] actual=3214651392 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:21 [INFO] actual=3210022912 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:22 [INFO] actual=3104194560 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:24 [INFO] actual=2945048576 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:25 [INFO] actual=2810978304 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:26 [INFO] actual=2679848960 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:27 [INFO] actual=2549665792 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:28 [INFO] actual=2423042048 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:30 [INFO] actual=2262405120 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:31 [INFO] actual=2293481472 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:33 [INFO] actual=2300563456 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:35 [INFO] actual=2309476352 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:36 [INFO] actual=2295615488 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:37 [INFO] actual=2342236160 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:38 [INFO] actual=2307112960 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:17:39 [INFO] actual=2252734464 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
