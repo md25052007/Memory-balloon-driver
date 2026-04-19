@@ -76,3 +76,19 @@ Add host-daemon + shared-memory control path on top of working Phase 1 virtio ba
 - So target-following is intentionally overridden by pressure logic in that mode.
 - This run proves pressure-signal behavior.
 - Separate run with pressure_min_free_mb=128 proves normal target convergence (inflate/deflate baseline).
+
+### 2026-04-19 23:53 IST (Phase A Stabilization Final Pass)
+- Pre-state set command:
+  - `timeout 10s ./host/balloond/balloond 3221225472 /home/maithreya/virtio-balloon/logs/qmp.sock < /dev/null`
+- Validation command:
+  - `./scripts/smoke_phase2.sh | tee proofs/phaseA_stabilize_run2.log`
+- Result: PASS
+- Inflate transition:
+  - start: `actual=3221225472`, `target=2147483648`, `cmd_seq=20`, `ack_seq=19`
+  - converged: `actual=2147483648`, `target=2147483648`, `ack_seq=20`
+- Deflate transition:
+  - start: `actual=2147483648`, `target=3221225472`, `cmd_seq=21`, `ack_seq=20`
+  - converged: `actual=3221225472`, `target=3221225472`, `ack_seq=21`
+- Notes:
+  - pressure path remained enabled (`pressure_enable=1`) with tuned baseline threshold (`pressure_min_free_mb=128`)
+  - script diagnostics and strict convergence checks are active

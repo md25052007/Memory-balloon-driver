@@ -1,3 +1,6 @@
+[1/4] Build host daemon
+[2/4] Inflate test -> 2 GiB
+----- BEGIN INFLATE LOG -----
 2026-04-19 23:53:42 [INFO] new target_bytes=2147483648 cmd_seq=20
 2026-04-19 23:53:42 [INFO] actual=3221225472 target=2147483648 cmd_seq=20 ack_seq=19 status=0 err=0
 2026-04-19 23:53:43 [INFO] actual=3194621952 target=2147483648 cmd_seq=20 ack_seq=19 status=0 err=0
@@ -59,3 +62,39 @@
 2026-04-19 23:54:41 [INFO] actual=2147483648 target=2147483648 cmd_seq=20 ack_seq=20 status=0 err=0
 2026-04-19 23:54:42 [INFO] actual=2147483648 target=2147483648 cmd_seq=20 ack_seq=20 status=0 err=0
 2026-04-19 23:54:42 [INFO] stopping
+----- END INFLATE LOG -----
+[3/4] Deflate test -> 3 GiB
+----- BEGIN DEFLATE LOG -----
+2026-04-19 23:54:42 [INFO] new target_bytes=3221225472 cmd_seq=21
+2026-04-19 23:54:42 [INFO] actual=2147483648 target=3221225472 cmd_seq=21 ack_seq=20 status=0 err=0
+2026-04-19 23:54:44 [INFO] actual=2604838912 target=3221225472 cmd_seq=21 ack_seq=20 status=0 err=0
+2026-04-19 23:54:45 [INFO] actual=3139674112 target=3221225472 cmd_seq=21 ack_seq=20 status=0 err=0
+2026-04-19 23:54:46 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:47 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:48 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:49 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:50 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:51 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:52 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:53 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:54 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:55 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:56 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:57 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:58 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:54:59 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:00 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:01 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:02 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:03 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:05 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:06 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:07 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:08 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:09 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:10 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:11 [INFO] actual=3221225472 target=3221225472 cmd_seq=21 ack_seq=21 status=0 err=0
+2026-04-19 23:55:12 [INFO] stopping
+----- END DEFLATE LOG -----
+[4/4] Save proofs
+smoke_phase2: completed (real QMP path)
