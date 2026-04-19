@@ -134,3 +134,16 @@ Interpretation:
   - ack catch-up: ack_seq=4
   - convergence: actual=3221225472, target=3221225472
 - Result: PASS (daemon<->guest command/ack is flowing over ivshmem transport)
+
+### 2026-04-20 IST (Phase D Pressure Revalidation after Phase C)
+- Host run command:
+  - timeout 20s ./host/balloond/balloond 2147483648 /home/maithreya/virtio-balloon/logs/qmp.sock < /dev/null | tee proofs/phaseD_pressure_run.log
+- Guest evidence command:
+  - ssh -p 2222 ubuntu@127.0.0.1 'sudo dmesg -T | grep -Ei "vballoon_lab|pressure deflate|BUG:|Oops|Call Trace"' | tee proofs/phaseD_pressure_dmesg_fresh.log
+- Result: PASS
+- Notes:
+  - guest dmesg timestamps are guest clock/timezone based
+  - host command runtime (IST) is used as report reference
+- Proof files:
+  - proofs/phaseD_pressure_run.log
+  - proofs/phaseD_pressure_dmesg_fresh.log
