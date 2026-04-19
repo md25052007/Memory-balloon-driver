@@ -1,0 +1,11 @@
+[1/5] Build host daemon
+[2/5] Build guest shm agent
+[3/5] Start daemon and agent
+[4/5] Read latest status
+2026-04-19 17:23:17 [INFO] new target_bytes=2147483648 cmd_seq=10
+2026-04-19 17:23:17 [INFO] actual=2147483648 target=2147483648 cmd_seq=10 ack_seq=9 status=0 err=0
+2026-04-19 17:23:18 [INFO] actual=2147483648 target=2147483648 cmd_seq=10 ack_seq=9 status=0 err=0
+2026-04-19 17:23:19 [INFO] actual=2147483648 target=2147483648 cmd_seq=10 ack_seq=10 status=0 err=0
+2026-04-19 17:23:20 [INFO] actual=2147483648 target=2147483648 cmd_seq=10 ack_seq=10 status=0 err=0
+[5/5] Cleanup
+smoke_phase2: completed

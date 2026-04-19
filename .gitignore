@@ -22,3 +22,8 @@ guest/vballoon_lab/.tmp_versions/
 
 # Local scratch
 PROJECT_INVENTORY.txt
+
+# Build artifacts
+guest/shm_agent/shm_agent
+host/balloond/balloond
+host/balloond/src/*.o

@@ -1,0 +1,17 @@
+2026-04-19 20:32:11 [INFO] new target_bytes=2147483648 cmd_seq=9
+2026-04-19 20:32:11 [INFO] actual=3221225472 target=2147483648 cmd_seq=9 ack_seq=8 status=0 err=0
+2026-04-19 20:32:12 [INFO] actual=2950692864 target=2147483648 cmd_seq=9 ack_seq=8 status=0 err=0
+2026-04-19 20:32:13 [INFO] actual=2684354560 target=2147483648 cmd_seq=9 ack_seq=8 status=0 err=0
+2026-04-19 20:32:14 [INFO] actual=2497708032 target=2147483648 cmd_seq=9 ack_seq=8 status=0 err=0
+2026-04-19 20:32:15 [INFO] actual=2322595840 target=2147483648 cmd_seq=9 ack_seq=8 status=0 err=0
+2026-04-19 20:32:16 [INFO] actual=2179989504 target=2147483648 cmd_seq=9 ack_seq=8 status=0 err=0
+2026-04-19 20:32:17 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:18 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:19 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:20 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:21 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:22 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:23 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:24 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:25 [INFO] actual=2147483648 target=2147483648 cmd_seq=9 ack_seq=9 status=0 err=0
+2026-04-19 20:32:26 [INFO] stopping
