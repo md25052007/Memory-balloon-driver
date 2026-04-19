@@ -12,7 +12,8 @@
 
 #include "include/protocol.h"
 
-#define BALLOOND_SHM_NAME "/balloond_shm_v1"
+#define IVSHMEM_RESOURCE "/sys/bus/pci/devices/0000:01:00.0/resource2"
+#define IVSHMEM_MAP_SIZE 4096
 
 static volatile sig_atomic_t g_stop = 0;
 
@@ -23,33 +24,37 @@ static void on_sigint(int sig) {
 
 int main(void) {
     int fd;
+    void *map;
     struct balloond_shm *shm;
     uint64_t seen_cmd = 0;
 
     signal(SIGINT, on_sigint);
     signal(SIGTERM, on_sigint);
 
-    fd = shm_open(BALLOOND_SHM_NAME, O_RDWR, 0666);
+    fd = open(IVSHMEM_RESOURCE, O_RDWR | O_SYNC);
     if (fd < 0) {
-        fprintf(stderr, "shm_open failed: %s\n", strerror(errno));
+        fprintf(stderr, "open %s failed: %s\n", IVSHMEM_RESOURCE, strerror(errno));
         return 1;
     }
 
-    shm = (struct balloond_shm *)mmap(NULL, sizeof(*shm), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-    if (shm == MAP_FAILED) {
+    map = mmap(NULL, IVSHMEM_MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    if (map == MAP_FAILED) {
         fprintf(stderr, "mmap failed: %s\n", strerror(errno));
         close(fd);
         return 1;
     }
 
+    shm = (struct balloond_shm *)map;
+
     if (shm->magic != BALLOOND_SHM_MAGIC || shm->version != BALLOOND_SHM_VERSION) {
-        fprintf(stderr, "protocol mismatch: magic/version invalid\n");
-        munmap(shm, sizeof(*shm));
+        fprintf(stderr, "protocol mismatch: magic/version invalid (magic=0x%x version=%u)\n",
+                shm->magic, shm->version);
+        munmap(map, IVSHMEM_MAP_SIZE);
         close(fd);
         return 1;
     }
 
-    printf("shm_agent: started\n");
+    printf("shm_agent(ivshmem): started\n");
 
     while (!g_stop) {
         if (shm->cmd_seq != seen_cmd) {
@@ -60,7 +65,7 @@ int main(void) {
             shm->status = 0;
             shm->last_error = 0;
 
-            printf("shm_agent: cmd=%llu target=%llu ack=%llu actual=%llu\n",
+            printf("shm_agent(ivshmem): cmd=%llu target=%llu ack=%llu actual=%llu\n",
                    (unsigned long long)shm->cmd_seq,
                    (unsigned long long)shm->target_bytes,
                    (unsigned long long)shm->ack_seq,
@@ -75,8 +80,8 @@ int main(void) {
         }
     }
 
-    printf("shm_agent: stopping\n");
-    munmap(shm, sizeof(*shm));
+    printf("shm_agent(ivshmem): stopping\n");
+    munmap(map, IVSHMEM_MAP_SIZE);
     close(fd);
     return 0;
 }

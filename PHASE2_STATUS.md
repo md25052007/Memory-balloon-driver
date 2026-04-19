@@ -122,3 +122,15 @@ Add host-daemon + shared-memory control path on top of working Phase 1 virtio ba
 Interpretation:
 - Real shared-memory transport visible to guest is now proven.
 - This completes Phase C transport foundation; next substep is wiring control fields onto this region for daemon/driver path.
+
+### 2026-04-20 03:57 IST (Phase C Contract over ivshmem: PASS)
+- Host shared-memory backend switched to file-backed ivshmem region: /dev/shm/balloon_ivshmem.bin.
+- Guest shm_agent switched from POSIX shm to PCI BAR mmap path:
+  - /sys/bus/pci/devices/0000:01:00.0/resource2
+- Validation command:
+  - timeout 12s ./host/balloond/balloond 3221225472 /home/maithreya/virtio-balloon/logs/qmp.sock < /dev/null | tee proofs/phaseC_ivshmem_contract_run2.log
+- Observed sequence:
+  - publish: cmd_seq=4, initial ack_seq=3
+  - ack catch-up: ack_seq=4
+  - convergence: actual=3221225472, target=3221225472
+- Result: PASS (daemon<->guest command/ack is flowing over ivshmem transport)
