@@ -121,10 +121,10 @@ Observed behavior:
 Interpretation:
 - pressure policy path is active and observable.
 
-## 6. What TA Should Run
+## 6. What To Run
 
 Use the exact runbook:
-- [TA_DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/TA_DEMO_DOCUMENTATION.md)
+- [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
 
 Important runtime points:
 - In default `run_qemu_phase2.sh` mode, `shm_agent` is not required for smoke flow.
@@ -149,7 +149,7 @@ Purpose:
 
 ## 9. Final Assessment
 
-For project-demo and TA validation scope, this submission is strong:
+For project-demo validation scope, this submission is strong:
 - balloon control path works,
 - inflate/deflate are proven with real outputs,
 - shared-memory contract discipline is proven,
@@ -165,4 +165,5 @@ Main future upgrade:
 - [PHASE2_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/PHASE2_STATUS.md)
 - [FINAL_SUBMISSION_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/FINAL_SUBMISSION_STATUS.md)
 - [docs/PROTOCOL.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/docs/PROTOCOL.md)
-- [TA_DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/TA_DEMO_DOCUMENTATION.md)
+- [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
+

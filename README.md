@@ -101,12 +101,12 @@ From [proofs/phase3_pressure_run.log](/Users/donth/Desktop/OS_PRO/repo_audit_clo
   - [scripts/run_qemu_phase2.sh](/Users/donth/Desktop/OS_PRO/repo_audit_clone/scripts/run_qemu_phase2.sh)
   - [scripts/run_qemu_phase3_ivshmem.sh](/Users/donth/Desktop/OS_PRO/repo_audit_clone/scripts/run_qemu_phase3_ivshmem.sh)
 - Smoke script: [scripts/smoke_phase2.sh](/Users/donth/Desktop/OS_PRO/repo_audit_clone/scripts/smoke_phase2.sh)
-- TA runbook: [TA_DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/TA_DEMO_DOCUMENTATION.md)
+- Demo runbook: [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
 
 ## 5) Fast Demo Flow
 
-Use the TA runbook directly:
-- [TA_DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/TA_DEMO_DOCUMENTATION.md)
+Use the demo runbook directly:
+- [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
 
 Short version:
 1. Start VM: `./scripts/run_qemu_phase2.sh`
@@ -143,3 +143,4 @@ Also possible improvements:
 For submission context details, see:
 - [PHASE2_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/PHASE2_STATUS.md)
 - [FINAL_SUBMISSION_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/FINAL_SUBMISSION_STATUS.md)
+

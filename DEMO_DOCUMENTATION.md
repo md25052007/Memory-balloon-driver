@@ -1,6 +1,6 @@
-﻿# Memory Balloon Driver - TA Demo & Reproduction Documentation
+# Memory Balloon Driver - Demo & Reproduction Documentation
 
-This document is the exact runbook for Teaching Assistants to reproduce the submitted project results from the code folder.
+This document is the exact runbook to reproduce the submitted project results from the code folder.
 
 ## 1. What To Show In Demo
 
@@ -343,7 +343,7 @@ If `ack_seq` does not advance in a run, usually one of these is true:
 - You are in `run_qemu_phase2.sh` mode (no ivshmem transport), so `shm_agent` is not relevant.
 - You are in ivshmem mode but `shm_agent` is not running.
 
-For default TA smoke flow, ignore `shm_agent` and use temporary pressure disable/restore steps in **Step B4**.
+For default smoke flow, ignore `shm_agent` and use temporary pressure disable/restore steps in **Step B4**.
 
 ### Guest SSH password rejected
 Cloud-init default in this project is:
@@ -356,8 +356,9 @@ If changed, regenerate `images/seed.iso` from Section 4 and reboot QEMU.
 On a fresh guest image, `build-essential` and dependencies may not be installed.
 The package-check logic in Step B2 installs only missing packages, but first-time install can still print a long list of `Get:` and `Unpacking` lines. This is expected.
 
-## 8. Final Notes for TA
+## 8. Final Notes
 
 - This submission demonstrates dynamic virtio balloon inflate/deflate with real QMP control.
 - Shared-memory contract and ivshmem transport are demonstrated in the included proofs.
 - Current architecture still uses guest userspace `shm_agent` bridge for shared-memory update path; kernel-direct SHM integration is documented as future extension.
+
