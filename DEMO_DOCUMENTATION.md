@@ -2,9 +2,9 @@
 
 This document is the exact runbook to reproduce the submitted project results from the code folder.
 
-## 1. What To Show In Demo
+## 1. Demo
 
-In the live demo, show these 5 checkpoints:
+In the live demo, check these 5 checkpoints:
 
 1. Guest custom balloon driver (`vballoon_lab`) is loaded and bound to `virtio0`.
 2. Host daemon (`balloond`) controls guest memory target through QMP.
