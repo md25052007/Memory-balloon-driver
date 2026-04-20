@@ -22,6 +22,19 @@ Scripts in this repo assume project path is:
 
 So after extracting/cloning, place folder at that exact location.
 
+Mandatory check:
+
+```bash
+cd ~
+test -d ~/virtio-balloon && echo "OK: folder is in home" || echo "MOVE_REQUIRED"
+```
+
+If your folder is currently somewhere else, move it into home and rename it to `virtio-balloon`:
+
+```bash
+mv /path/to/your/current/folder ~/virtio-balloon
+```
+
 If you clone from GitHub and the default folder name is `Memory-balloon-driver`, do one of these:
 
 Option A (recommended): clone directly into the expected folder name
