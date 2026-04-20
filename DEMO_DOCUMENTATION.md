@@ -86,6 +86,13 @@ EOF
 cloud-localds seed.iso user-data meta-data
 ```
 
+### Reproducibility note (important)
+
+For consistent demo results across different laptops:
+- always use the exact cloud image and `seed.iso` generation steps above;
+- do not reuse an old or modified VM disk from another setup;
+- if in doubt, recreate the image and `seed.iso` before running the demo.
+
 ## 5. Demo Execution (Terminal-by-Terminal)
 
 Use **3 terminals**:
@@ -355,6 +362,30 @@ If changed, regenerate `images/seed.iso` from Section 4 and reboot QEMU.
 ### First-run package installation output is very long
 On a fresh guest image, `build-essential` and dependencies may not be installed.
 The package-check logic in Step B2 installs only missing packages, but first-time install can still print a long list of `Get:` and `Unpacking` lines. This is expected.
+
+### Boot shows `/dev/disk/by-label/BOOT` or `/dev/disk/by-label/UEFI` timeout
+If boot logs show repeated timeout/dependency failures for `by-label/BOOT` or `by-label/UEFI`, the guest image likely has stale `/etc/fstab` entries from another environment.
+
+Preferred fix (best reproducibility):
+
+```bash
+cd ~/virtio-balloon/images
+rm -f ubuntu-24.04-server-cloudimg-amd64.img seed.iso
+wget -O ubuntu-24.04-server-cloudimg-amd64.img https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+qemu-img resize ubuntu-24.04-server-cloudimg-amd64.img +20G
+cloud-localds seed.iso user-data meta-data
+```
+
+Alternative repair on current guest:
+
+```bash
+ssh -p 2222 ubuntu@127.0.0.1 '
+sudo cp /etc/fstab /etc/fstab.bak
+sudo sed -i "/by-label\\/BOOT/s/^/# /; /by-label\\/UEFI/s/^/# /" /etc/fstab
+'
+```
+
+Then reboot/restart VM and continue from Step A1.
 
 ## 8. Final Notes
 
