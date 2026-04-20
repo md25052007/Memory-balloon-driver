@@ -56,3 +56,4 @@
 
 ## Current Scope Note
 This protocol is active in the current host daemon path and documented as the authoritative contract for Phase B cleanup.
+

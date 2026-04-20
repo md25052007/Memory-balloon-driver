@@ -118,23 +118,17 @@ Short version:
 4. Run smoke: `./scripts/smoke_phase2.sh 2>&1 | tee proofs/phase3_pressure_run.log`
 5. Re-enable pressure and capture pressure-deflate evidence
 
-## 6) Why `policy.c` Exists
-
-File: [host/balloond/src/policy.c](host/balloond/src/policy.c)
-
-`policy.c` is currently an empty placeholder and is intentionally kept for future host policy logic (bounds, hysteresis, pressure-aware host decisions, adaptive targeting). In this submission, core policy behavior is kept minimal in `main.c` for deterministic demo validation.
-
-## 7) Current Gaps / Future Work
+## 6) Current Gaps / Future Work
 
 The project is strong for demo scope, but one major advanced integration remains:
 - shared-memory control is still bridged through guest userspace `shm_agent`; kernel-direct shared-memory control integration is future work.
 
 Also possible improvements:
-- richer host policy engine in `policy.c`
+- add a dedicated host policy module for adaptive targeting and bounds
 - deeper kernel pressure hooks beyond threshold mode
 - stronger restart/recovery automation
 
-## 8) Final Status
+## 7) Final Status
 
 - Dynamic inflate/deflate: **done**
 - QMP-controlled host daemon path: **done**
@@ -144,7 +138,8 @@ Also possible improvements:
 - Kernel-direct shared-memory integration: **not yet done (explicitly documented)**
 
 For submission context details, see:
-- [PHASE2_STATUS.md](PHASE2_STATUS.md)
-- [FINAL_SUBMISSION_STATUS.md](FINAL_SUBMISSION_STATUS.md)
+- [docs/STATUS.md](docs/STATUS.md)
+- [docs/PROTOCOL.md](docs/PROTOCOL.md)
+
 
 

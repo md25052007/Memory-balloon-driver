@@ -257,7 +257,7 @@ rm -f ~/virtio-balloon/logs/qmp.sock
 
 # Save guide to git
 cd ~/virtio-balloon
-git add VM_QEMU_TEST_GUIDE.md
+git add docs/QEMU_TEST_GUIDE.md
 git commit -m "Add full 11-step QEMU+guest+balloon guide with explanations"
 git push
 ```
@@ -270,3 +270,4 @@ git push
 - Deflated back to exact 3 GiB target: `3221225472`
 - Driver bound to: `/sys/bus/virtio/drivers/vballoon_lab`
 - Final stable cycles completed without fresh kernel Oops.
+

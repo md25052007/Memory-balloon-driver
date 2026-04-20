@@ -393,3 +393,4 @@ Then reboot/restart VM and continue from Step A1.
 - Shared-memory contract and ivshmem transport are demonstrated in the included proofs.
 - Current architecture still uses guest userspace `shm_agent` bridge for shared-memory update path; kernel-direct SHM integration is documented as future extension.
 
+

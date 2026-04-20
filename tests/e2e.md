@@ -26,3 +26,4 @@ Shared-memory control loop is working:
 ## Note
 This is Phase 2 MVP bridge behavior using `guest/shm_agent`.
 Next step is wiring the same control path into guest kernel balloon driver flow.
+

@@ -135,19 +135,11 @@ Important runtime points:
 
 1. Guest shared-memory command handling is currently userspace-bridged (`guest/shm_agent`) for transport/contract path.
 2. Kernel-direct shared-memory integration is not yet merged.
-3. Host `policy.c` is a reserved extension point (currently minimal by design).
+3. Host-side adaptive policy logic is still minimal and will be expanded in future work.
 
 These are documented and do not invalidate demonstrated core functionality.
 
-## 8. Why `policy.c` Exists
-
-File: [host/balloond/src/policy.c](host/balloond/src/policy.c)
-
-Purpose:
-- placeholder for future host-side policy engine (bounds, adaptive rules, throttling, heuristics).
-- current submission keeps control path simple and deterministic in `main.c` to maximize reproducibility.
-
-## 9. Final Assessment
+## 8. Final Assessment
 
 For project-demo validation scope, this submission is strong:
 - balloon control path works,
@@ -156,15 +148,18 @@ For project-demo validation scope, this submission is strong:
 - ivshmem transport is proven,
 - pressure behavior is proven.
 
-Main future upgrade:
-- move shared-memory control fully inside kernel side (remove userspace bridge dependency).
+Main future upgrades:
+- move shared-memory control fully inside kernel side (remove userspace bridge dependency),
+- add a dedicated host policy module for adaptive decision logic.
 
-## 10. Reference Files
+## 9. Reference Files
 
 - [README.md](README.md)
-- [PHASE2_STATUS.md](PHASE2_STATUS.md)
-- [FINAL_SUBMISSION_STATUS.md](FINAL_SUBMISSION_STATUS.md)
+- [docs/STATUS.md](docs/STATUS.md)
 - [docs/PROTOCOL.md](docs/PROTOCOL.md)
 - [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
+- [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)
+- [docs/QEMU_TEST_GUIDE.md](docs/QEMU_TEST_GUIDE.md)
+
 
 

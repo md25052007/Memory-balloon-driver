@@ -1,7 +1,7 @@
-# Phase 3 Plan
+# Roadmap
 
 ## Goal
-Move from Phase 2 shared-memory MVP bridge to production-style integration aligned with virtio balloon detailed guide concepts.
+Move from the current shared-memory MVP bridge to a production-style integration aligned with virtio balloon design goals.
 
 ## Work Items
 
@@ -10,7 +10,7 @@ Move from Phase 2 shared-memory MVP bridge to production-style integration align
 - Driver should consume target updates and publish actual/ack/error safely.
 
 2. Host daemon structure completion
-- Implement `policy.c` for target decisions (manual + scripted modes).
+- Add a dedicated host policy module for target decisions (manual + scripted modes).
 - Implement `log.c` for structured event logs.
 
 3. Reliability and recovery
@@ -34,5 +34,6 @@ Move from Phase 2 shared-memory MVP bridge to production-style integration align
 ## Deliverables
 - Updated driver + daemon code
 - Updated scripts
-- `tests/phase3_e2e.md`
-- `PHASE3_STATUS.md`
+- `tests/e2e.md`
+- `docs/STATUS.md`
+

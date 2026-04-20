@@ -1,7 +1,7 @@
-# Phase 2 Status
+# Project Status
 
 ## Objective
-Add host-daemon + shared-memory control path on top of working Phase 1 virtio balloon driver baseline.
+Add host-daemon + shared-memory control path on top of a working virtio balloon driver baseline.
 
 ## Implemented
 1. Shared-memory protocol v1
@@ -32,12 +32,12 @@ Add host-daemon + shared-memory control path on top of working Phase 1 virtio ba
 ## Known Scope Limitations
 1. Guest shared-memory bridge is userspace (`shm_agent`) MVP.
 2. Shared-memory protocol is local prototype, not yet integrated with full vhost-user backend.
-3. `policy.c` and `log.c` contain placeholder structure for future expansion.
-4. Not yet wiring shared-memory control directly into kernel driver loop.
+3. Shared-memory control is not yet wired directly into the kernel driver loop.
+4. Host-side adaptive policy logic is still minimal and planned for future work.
 
-## Phase 3 (Recommended)
+## Next Recommended Work
 1. Replace/merge userspace bridge with kernel-driver-integrated control path.
-2. Add host policy engine (`policy.c`) and structured logging (`log.c`).
+2. Add a dedicated host policy module and structured logging enhancements.
 3. Add robust error handling and restart recovery.
 4. Add memory-pressure signals and statistics path (closer alignment to detailed guide).
 5. Add vhost-user backend integration if required by final architecture.
@@ -147,3 +147,4 @@ Interpretation:
 - Proof files:
   - proofs/phaseD_pressure_run.log
   - proofs/phaseD_pressure_dmesg_fresh.log
+

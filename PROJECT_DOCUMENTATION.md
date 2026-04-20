@@ -24,7 +24,7 @@ What works now:
 
 What is intentionally not finished:
 - kernel-direct shared-memory control path is not fully merged yet;
-- host policy engine (`policy.c`) is currently empty placeholder for future logic.
+- host-side adaptive policy logic is still minimal and will be expanded in future work.
 
 ## 3. Architecture and Design
 
@@ -118,16 +118,6 @@ Role:
 
 Note:
 - logs are emitted through standard error; this is why proofs require `2>&1 | tee`.
-
-### 4.1.5 `src/policy.c`
-Role:
-- future host policy module.
-
-Current state:
-- intentionally empty placeholder.
-
-Future use:
-- adaptive targeting, hysteresis, bounds, host-side policy heuristics.
 
 ## 4.2 Guest kernel module (`guest/vballoon_lab/vballoon_lab.c`)
 
@@ -278,16 +268,18 @@ Expected:
 
 ## 8. Limitations and Future Work
 
-1. `host/balloond/src/policy.c` is currently empty placeholder.
-2. Shared-memory control path is still userspace-bridged (`shm_agent`) for guest-side contract updates.
-3. Kernel-direct shared-memory integration is pending.
-4. Additional recovery hardening and richer host policy remain future scope.
+1. Shared-memory control path is still userspace-bridged (`shm_agent`) for guest-side contract updates.
+2. Kernel-direct shared-memory integration is pending.
+3. Additional recovery hardening is pending.
+4. Add a dedicated host policy module for adaptive targeting, bounds, and replay-safe decisioning.
 
 ## 9. Related Documents
 
 - [README.md](README.md)
 - [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
 - [END_TO_END_REPORT.md](END_TO_END_REPORT.md)
-- [PHASE2_STATUS.md](PHASE2_STATUS.md)
-- [FINAL_SUBMISSION_STATUS.md](FINAL_SUBMISSION_STATUS.md)
+- [docs/STATUS.md](docs/STATUS.md)
+- [docs/PROTOCOL.md](docs/PROTOCOL.md)
+- [docs/QEMU_TEST_GUIDE.md](docs/QEMU_TEST_GUIDE.md)
+
 
