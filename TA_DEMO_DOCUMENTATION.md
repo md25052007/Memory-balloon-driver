@@ -22,6 +22,23 @@ Scripts in this repo assume project path is:
 
 So after extracting/cloning, place folder at that exact location.
 
+If you clone from GitHub and the default folder name is `Memory-balloon-driver`, do one of these:
+
+Option A (recommended): clone directly into the expected folder name
+
+```bash
+cd ~
+git clone https://github.com/md25052007/Memory-balloon-driver.git virtio-balloon
+```
+
+Option B: rename after cloning
+
+```bash
+cd ~
+git clone https://github.com/md25052007/Memory-balloon-driver.git
+mv Memory-balloon-driver virtio-balloon
+```
+
 ## 3. Environment Requirements (Host)
 
 Host OS: Ubuntu 24.04+ (or compatible Linux with QEMU + KVM/TCG).

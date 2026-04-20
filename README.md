@@ -2,6 +2,27 @@
 
 This repository implements a virtio-style memory balloon project with host-side control, guest-side ballooning, shared-memory command contract, and pressure-triggered behavior.
 
+## 0) Folder Name Requirement
+
+Most scripts assume the project is located at:
+
+```bash
+~/virtio-balloon
+```
+
+If you clone from GitHub, use one of these:
+
+```bash
+# clone directly into expected path
+cd ~
+git clone https://github.com/md25052007/Memory-balloon-driver.git virtio-balloon
+
+# OR rename after clone
+cd ~
+git clone https://github.com/md25052007/Memory-balloon-driver.git
+mv Memory-balloon-driver virtio-balloon
+```
+
 ## 1) Project Goal
 
 Problem statement target:
