@@ -3,7 +3,7 @@
 This repository implements a virtio-style memory balloon project with host-side control, guest-side ballooning, shared-memory command contract, and pressure-triggered behavior.
 
 Comprehensive documentation:
-- [PROJECT_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/PROJECT_DOCUMENTATION.md)
+- [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)
 
 ## 0) Folder Name Requirement
 
@@ -55,7 +55,7 @@ Problem statement target:
   - `actual`, `target`, `cmd_seq`, `ack_seq`, `shm_status`, `shm_err`, `qmp_err`.
 
 ### C. Shared-memory protocol contract
-- Protocol in [docs/PROTOCOL.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/docs/PROTOCOL.md)
+- Protocol in [docs/PROTOCOL.md](docs/PROTOCOL.md)
 - Fields:
   - `magic`, `version`, `target_bytes`, `actual_bytes`, `cmd_seq`, `ack_seq`, `status`, `last_error`
 - Strict ownership:
@@ -64,52 +64,52 @@ Problem statement target:
 
 ### D. Shared-memory transport proof
 - ivshmem transport validated with host->guest and guest->host marker exchange.
-- Proof file: [proofs/phaseC_ivshmem_transport_ok.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phaseC_ivshmem_transport_ok.log)
+- Proof file: [proofs/phaseC_ivshmem_transport_ok.log](proofs/phaseC_ivshmem_transport_ok.log)
 
 ### E. Pressure behavior proof
 - Pressure-triggered deflate observed repeatedly in guest `dmesg`.
-- Proof file: [proofs/phaseD_pressure_dmesg_fresh.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phaseD_pressure_dmesg_fresh.log)
+- Proof file: [proofs/phaseD_pressure_dmesg_fresh.log](proofs/phaseD_pressure_dmesg_fresh.log)
 
 ## 3) Key Observed Outputs (from proofs)
 
 ### Inflate convergence (3 GiB -> 2 GiB)
-From [proofs/phase2_qmp_inflate_ok.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phase2_qmp_inflate_ok.log):
+From [proofs/phase2_qmp_inflate_ok.log](proofs/phase2_qmp_inflate_ok.log):
 - starts around `actual=3221225472`
 - converges to `actual=2147483648 target=2147483648`
 - `ack_seq` catches up to `cmd_seq`
 
 ### Deflate convergence (2 GiB -> 3 GiB)
-From [proofs/phase2_qmp_deflate_ok.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phase2_qmp_deflate_ok.log):
+From [proofs/phase2_qmp_deflate_ok.log](proofs/phase2_qmp_deflate_ok.log):
 - starts around `actual=2147483648 target=3221225472`
 - converges to `actual=3221225472 target=3221225472`
 - `ack_seq` catches up to `cmd_seq`
 
 ### Replay/no-op guard
-From [proofs/phaseB_replay_guard.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phaseB_replay_guard.log):
+From [proofs/phaseB_replay_guard.log](proofs/phaseB_replay_guard.log):
 - `target unchanged and no pending cmd ..., skipping publish`
 - confirms duplicate publish suppression.
 
 ### Full smoke with both sections
-From [proofs/phase3_pressure_run.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phase3_pressure_run.log):
+From [proofs/phase3_pressure_run.log](proofs/phase3_pressure_run.log):
 - contains `BEGIN INFLATE LOG`
 - contains `BEGIN DEFLATE LOG`
 - ends with `smoke_phase2: completed (real QMP path)`
 
 ## 4) Repository Layout
 
-- Host daemon code: [host/balloond/src/main.c](/Users/donth/Desktop/OS_PRO/repo_audit_clone/host/balloond/src/main.c), [host/balloond/src/shm.c](/Users/donth/Desktop/OS_PRO/repo_audit_clone/host/balloond/src/shm.c), [host/balloond/src/qmp.c](/Users/donth/Desktop/OS_PRO/repo_audit_clone/host/balloond/src/qmp.c)
-- Guest kernel module: [guest/vballoon_lab/vballoon_lab.c](/Users/donth/Desktop/OS_PRO/repo_audit_clone/guest/vballoon_lab/vballoon_lab.c)
-- Guest shared-memory agent (bridge): [guest/shm_agent/main.c](/Users/donth/Desktop/OS_PRO/repo_audit_clone/guest/shm_agent/main.c)
+- Host daemon code: [host/balloond/src/main.c](host/balloond/src/main.c), [host/balloond/src/shm.c](host/balloond/src/shm.c), [host/balloond/src/qmp.c](host/balloond/src/qmp.c)
+- Guest kernel module: [guest/vballoon_lab/vballoon_lab.c](guest/vballoon_lab/vballoon_lab.c)
+- Guest shared-memory agent (bridge): [guest/shm_agent/main.c](guest/shm_agent/main.c)
 - QEMU scripts:
-  - [scripts/run_qemu_phase2.sh](/Users/donth/Desktop/OS_PRO/repo_audit_clone/scripts/run_qemu_phase2.sh)
-  - [scripts/run_qemu_phase3_ivshmem.sh](/Users/donth/Desktop/OS_PRO/repo_audit_clone/scripts/run_qemu_phase3_ivshmem.sh)
-- Smoke script: [scripts/smoke_phase2.sh](/Users/donth/Desktop/OS_PRO/repo_audit_clone/scripts/smoke_phase2.sh)
-- Demo runbook: [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
+  - [scripts/run_qemu_phase2.sh](scripts/run_qemu_phase2.sh)
+  - [scripts/run_qemu_phase3_ivshmem.sh](scripts/run_qemu_phase3_ivshmem.sh)
+- Smoke script: [scripts/smoke_phase2.sh](scripts/smoke_phase2.sh)
+- Demo runbook: [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
 
 ## 5) Fast Demo Flow
 
 Use the demo runbook directly:
-- [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
+- [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
 
 Short version:
 1. Start VM: `./scripts/run_qemu_phase2.sh`
@@ -120,7 +120,7 @@ Short version:
 
 ## 6) Why `policy.c` Exists
 
-File: [host/balloond/src/policy.c](/Users/donth/Desktop/OS_PRO/repo_audit_clone/host/balloond/src/policy.c)
+File: [host/balloond/src/policy.c](host/balloond/src/policy.c)
 
 `policy.c` is currently an empty placeholder and is intentionally kept for future host policy logic (bounds, hysteresis, pressure-aware host decisions, adaptive targeting). In this submission, core policy behavior is kept minimal in `main.c` for deterministic demo validation.
 
@@ -144,6 +144,7 @@ Also possible improvements:
 - Kernel-direct shared-memory integration: **not yet done (explicitly documented)**
 
 For submission context details, see:
-- [PHASE2_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/PHASE2_STATUS.md)
-- [FINAL_SUBMISSION_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/FINAL_SUBMISSION_STATUS.md)
+- [PHASE2_STATUS.md](PHASE2_STATUS.md)
+- [FINAL_SUBMISSION_STATUS.md](FINAL_SUBMISSION_STATUS.md)
+
 

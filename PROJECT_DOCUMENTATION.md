@@ -47,7 +47,7 @@ What is intentionally not finished:
 ## 3.3 Shared-memory protocol design
 
 Contract reference:
-- [docs/PROTOCOL.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/docs/PROTOCOL.md)
+- [docs/PROTOCOL.md](docs/PROTOCOL.md)
 
 Fields:
 - `magic`, `version`, `flags`
@@ -201,20 +201,20 @@ Important note:
 ## 5. Configuration Files Documentation
 
 ## 5.1 Cloud-init and image config
-- [images/user-data](/Users/donth/Desktop/OS_PRO/repo_audit_clone/images/user-data):
+- [images/user-data](images/user-data):
   - creates `ubuntu` user,
   - enables SSH password auth,
   - sets initial password `ubuntu`.
-- [images/meta-data](/Users/donth/Desktop/OS_PRO/repo_audit_clone/images/meta-data):
+- [images/meta-data](images/meta-data):
   - sets instance-id and hostname.
 
 ## 5.2 Build configs
 - Host build:
-  - [host/balloond/Makefile](/Users/donth/Desktop/OS_PRO/repo_audit_clone/host/balloond/Makefile)
+  - [host/balloond/Makefile](host/balloond/Makefile)
 - Guest module build:
-  - [guest/vballoon_lab/Makefile](/Users/donth/Desktop/OS_PRO/repo_audit_clone/guest/vballoon_lab/Makefile)
+  - [guest/vballoon_lab/Makefile](guest/vballoon_lab/Makefile)
 - Guest agent build:
-  - [guest/shm_agent/Makefile](/Users/donth/Desktop/OS_PRO/repo_audit_clone/guest/shm_agent/Makefile)
+  - [guest/shm_agent/Makefile](guest/shm_agent/Makefile)
 
 ## 5.3 Runtime parameters and environment variables
 
@@ -230,7 +230,7 @@ Guest module parameters:
 ## 6. End-user Documentation (How to Run)
 
 Primary runbook:
-- [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
+- [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
 
 Quick sequence:
 1. Start VM with `./scripts/run_qemu_phase2.sh`.
@@ -242,15 +242,15 @@ Quick sequence:
 ## 7. Output and Proof Interpretation
 
 ## 7.1 Inflate/deflate convergence
-- [proofs/phase2_qmp_inflate_ok.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phase2_qmp_inflate_ok.log)
-- [proofs/phase2_qmp_deflate_ok.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phase2_qmp_deflate_ok.log)
+- [proofs/phase2_qmp_inflate_ok.log](proofs/phase2_qmp_inflate_ok.log)
+- [proofs/phase2_qmp_deflate_ok.log](proofs/phase2_qmp_deflate_ok.log)
 
 Expected:
 - inflate reaches `2147483648` bytes,
 - deflate reaches `3221225472` bytes.
 
 ## 7.2 Full smoke markers
-- [proofs/phase3_pressure_run.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phase3_pressure_run.log)
+- [proofs/phase3_pressure_run.log](proofs/phase3_pressure_run.log)
 
 Expected markers:
 - `BEGIN INFLATE LOG`
@@ -258,19 +258,19 @@ Expected markers:
 - completion line.
 
 ## 7.3 Replay-safe behavior
-- [proofs/phaseB_replay_guard.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phaseB_replay_guard.log)
+- [proofs/phaseB_replay_guard.log](proofs/phaseB_replay_guard.log)
 
 Expected signal:
 - unchanged target with no pending command -> publish skipped.
 
 ## 7.4 Pressure behavior
-- [proofs/phaseD_pressure_dmesg_fresh.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phaseD_pressure_dmesg_fresh.log)
+- [proofs/phaseD_pressure_dmesg_fresh.log](proofs/phaseD_pressure_dmesg_fresh.log)
 
 Expected signal:
 - repeated `pressure deflate` lines.
 
 ## 7.5 ivshmem transport demonstration
-- [proofs/phaseC_ivshmem_transport_ok.log](/Users/donth/Desktop/OS_PRO/repo_audit_clone/proofs/phaseC_ivshmem_transport_ok.log)
+- [proofs/phaseC_ivshmem_transport_ok.log](proofs/phaseC_ivshmem_transport_ok.log)
 
 Expected:
 - host->guest marker match,
@@ -285,8 +285,9 @@ Expected:
 
 ## 9. Related Documents
 
-- [README.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/README.md)
-- [DEMO_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/DEMO_DOCUMENTATION.md)
-- [END_TO_END_REPORT.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/END_TO_END_REPORT.md)
-- [PHASE2_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/PHASE2_STATUS.md)
-- [FINAL_SUBMISSION_STATUS.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/FINAL_SUBMISSION_STATUS.md)
+- [README.md](README.md)
+- [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
+- [END_TO_END_REPORT.md](END_TO_END_REPORT.md)
+- [PHASE2_STATUS.md](PHASE2_STATUS.md)
+- [FINAL_SUBMISSION_STATUS.md](FINAL_SUBMISSION_STATUS.md)
+
