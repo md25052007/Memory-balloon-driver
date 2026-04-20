@@ -1,10 +1,61 @@
 [1/4] Build host daemon
-src/main.c: In function ‘main’:
-src/main.c:67:22: error: ‘PATH_MAX’ undeclared (first use in this function)
-   67 |     char qmp_default[PATH_MAX];
-      |                      ^~~~~~~~
-src/main.c:67:22: note: each undeclared identifier is reported only once for each function it appears in
-src/main.c:67:10: warning: unused variable ‘qmp_default’ [-Wunused-variable]
-   67 |     char qmp_default[PATH_MAX];
-      |          ^~~~~~~~~~~
-make: *** [<builtin>: src/main.o] Error 1
+[2/4] Inflate test -> 2 GiB
+----- BEGIN INFLATE LOG -----
+2026-04-20 05:36:57 [INFO] target unchanged and no pending cmd (target=2147483648), skipping publish
+2026-04-20 05:36:57 [INFO] actual=2658193408 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:36:59 [INFO] actual=2648182784 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:00 [INFO] actual=2647904256 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:01 [INFO] actual=2647986176 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:02 [INFO] actual=2648788992 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:03 [INFO] actual=2660712448 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:04 [INFO] actual=2647760896 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:06 [INFO] actual=2649354240 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:07 [INFO] actual=2650996736 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:08 [INFO] actual=2650599424 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:09 [INFO] actual=2651602944 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:10 [INFO] actual=2650259456 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:11 [INFO] actual=2647142400 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:12 [INFO] actual=2647773184 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:13 [INFO] actual=2648330240 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:14 [INFO] actual=2650542080 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:16 [INFO] actual=2648395776 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:17 [INFO] actual=2649042944 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:18 [INFO] actual=2649653248 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:19 [INFO] actual=2648694784 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:20 [INFO] actual=2651860992 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:21 [INFO] actual=2659221504 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:22 [INFO] actual=2648961024 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:23 [INFO] actual=2649694208 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:24 [INFO] actual=2653007872 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:25 [INFO] actual=2651021312 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:26 [INFO] actual=2648993792 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:27 [INFO] actual=2649305088 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:28 [INFO] actual=2650869760 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:29 [INFO] actual=2648961024 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:30 [INFO] actual=2653491200 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:32 [INFO] actual=2651176960 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:33 [INFO] actual=2650603520 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:34 [INFO] actual=2650460160 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:35 [INFO] actual=2648764416 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:36 [INFO] actual=2650091520 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:38 [INFO] actual=2649112576 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:39 [INFO] actual=2650566656 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:41 [INFO] actual=2652418048 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:42 [INFO] actual=2648457216 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:43 [INFO] actual=2667511808 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:44 [INFO] actual=2653683712 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:45 [INFO] actual=2655510528 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:46 [INFO] actual=2652192768 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:47 [INFO] actual=2648170496 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:48 [INFO] actual=2649108480 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:49 [INFO] actual=2648096768 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:50 [INFO] actual=2650243072 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:51 [INFO] actual=2650103808 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:52 [INFO] actual=2667237376 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:53 [INFO] actual=2656604160 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:54 [INFO] actual=2653827072 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:55 [INFO] actual=2657181696 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:56 [INFO] actual=2655440896 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:58 [INFO] actual=2655133696 target=2147483648 cmd_seq=9 ack_seq=9 shm_status=0 shm_err=0 qmp_err=0
+2026-04-20 05:37:59 [INFO] stopping
+----- END INFLATE LOG -----

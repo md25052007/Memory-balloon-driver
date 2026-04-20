@@ -64,7 +64,7 @@ static void publish_target(struct balloond_shm *shm, const char *qmp_sock, uint6
 
 int main(int argc, char **argv) {
     uint64_t target = 2147483648ULL; /* 2 GiB default */
-    char qmp_default[PATH_MAX];
+    char qmp_default[512];
     const char *qmp_sock = resolve_default_qmp_sock(qmp_default, sizeof(qmp_default));
     struct balloond_shm *shm = NULL;
     int interactive = isatty(STDIN_FILENO);
