@@ -2,6 +2,9 @@
 
 This repository implements a virtio-style memory balloon project with host-side control, guest-side ballooning, shared-memory command contract, and pressure-triggered behavior.
 
+Comprehensive documentation:
+- [PROJECT_DOCUMENTATION.md](/Users/donth/Desktop/OS_PRO/repo_audit_clone/PROJECT_DOCUMENTATION.md)
+
 ## 0) Folder Name Requirement
 
 Most scripts assume the project is located at:
@@ -119,7 +122,7 @@ Short version:
 
 File: [host/balloond/src/policy.c](/Users/donth/Desktop/OS_PRO/repo_audit_clone/host/balloond/src/policy.c)
 
-It is a reserved extension point for host policy logic (future rules like bounds, hysteresis, pressure-aware host decisions, and adaptive targeting). In current submission, control policy is intentionally minimal and implemented in `main.c` to keep the path deterministic for demo and validation.
+`policy.c` is currently an empty placeholder and is intentionally kept for future host policy logic (bounds, hysteresis, pressure-aware host decisions, adaptive targeting). In this submission, core policy behavior is kept minimal in `main.c` for deterministic demo validation.
 
 ## 7) Current Gaps / Future Work
 
