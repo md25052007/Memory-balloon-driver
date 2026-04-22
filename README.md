@@ -64,6 +64,7 @@ Problem statement target:
 
 ### D. Shared-memory transport proof
 - ivshmem transport validated with host->guest and guest->host marker exchange.
+- guest `shm_agent` now auto-detects ivshmem PCI function by vendor/device ID (`1af4:1110`), so it is portable across machines with different PCI BDF assignments.
 - Proof file: [proofs/phaseC_ivshmem_transport_ok.log](proofs/phaseC_ivshmem_transport_ok.log)
 
 ### E. Pressure behavior proof
@@ -112,11 +113,12 @@ Use the demo runbook directly:
 - [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
 
 Short version:
-1. Start VM: `./scripts/run_qemu_phase2.sh`
-2. Build/load guest module and bind to `virtio0`
-3. Temporarily disable pressure for deterministic smoke
-4. Run smoke: `./scripts/smoke_phase2.sh 2>&1 | tee proofs/phase3_pressure_run.log`
-5. Re-enable pressure and capture pressure-deflate evidence
+1. Start VM: `./scripts/run_qemu_phase3_ivshmem.sh`
+2. Build/load guest module and bind to `virtio0`.
+3. Build/start guest `shm_agent` and confirm it is running.
+4. Run contract logs (`phaseC_ivshmem_contract_run*.log`) and verify `ack_seq` catches up.
+5. Temporarily disable pressure and run smoke: `./scripts/smoke_phase2.sh 2>&1 | tee proofs/phase3_pressure_run.log`.
+6. Re-enable pressure and capture pressure-deflate evidence.
 
 ## 6) Current Gaps / Future Work
 

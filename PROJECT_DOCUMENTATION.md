@@ -163,7 +163,7 @@ Role:
 - userspace bridge that maps ivshmem BAR and updates shared-memory ack/actual fields.
 
 Current behavior:
-- maps PCI resource (`resource2`),
+- auto-detects ivshmem PCI function by vendor/device (`1af4:1110`) and maps its `resource2`,
 - validates protocol header,
 - on new command sequence:
   - sets `actual_bytes = target_bytes`,
@@ -223,11 +223,13 @@ Primary runbook:
 - [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
 
 Quick sequence:
-1. Start VM with `./scripts/run_qemu_phase2.sh`.
+1. Start VM with `./scripts/run_qemu_phase3_ivshmem.sh`.
 2. Build/load guest module and bind driver.
-3. Disable pressure temporarily for deterministic smoke run.
-4. Run `./scripts/smoke_phase2.sh 2>&1 | tee proofs/phase3_pressure_run.log`.
-5. Re-enable pressure and capture pressure evidence logs.
+3. Build/start guest `shm_agent` and verify process/log output.
+4. Run shared-memory contract logs and verify `ack_seq` progression.
+5. Disable pressure temporarily for deterministic smoke run.
+6. Run `./scripts/smoke_phase2.sh 2>&1 | tee proofs/phase3_pressure_run.log`.
+7. Re-enable pressure and capture pressure evidence logs.
 
 ## 7. Output and Proof Interpretation
 

@@ -117,7 +117,7 @@ Use **3 terminals**:
 
 ```bash
 cd ~/virtio-balloon
-./scripts/run_qemu_phase2.sh
+./scripts/run_qemu_phase3_ivshmem.sh
 ```
 
 Keep Terminal A running.
@@ -198,12 +198,44 @@ If output is different:
 ssh -p 2222 ubuntu@127.0.0.1 'readlink -f /sys/bus/virtio/devices/virtio0/driver'
 ```
 
-### Step B3: Shared-memory agent note (important)
+### Step B3: Build and start shared-memory agent (required)
 
-For this default demo flow (`./scripts/run_qemu_phase2.sh`), `shm_agent` is **not required**.
-Reason: this boot mode does not expose ivshmem transport, so shared-memory agent activity is not part of core smoke verification.
+Verify ivshmem device is visible in guest:
 
-Use `shm_agent` only in ivshmem boot mode (`./scripts/run_qemu_phase3_ivshmem.sh`) when you specifically want to demonstrate host<->guest shared-memory transport behavior.
+```bash
+ssh -p 2222 ubuntu@127.0.0.1 'lspci -Dnn | grep -Ei "1af4:1110|Inter-VM shared memory"'
+```
+
+Build and start `shm_agent` in guest:
+
+```bash
+ssh -p 2222 ubuntu@127.0.0.1 '
+set -e
+cd ~/virtio-balloon/guest/shm_agent
+make clean
+make
+sudo pkill -f "/guest/shm_agent/shm_agent" 2>/dev/null || true
+sudo nohup ~/virtio-balloon/guest/shm_agent/shm_agent >/tmp/shm_agent_ivshmem.log 2>&1 &
+'
+```
+
+Confirm agent is running and logging:
+
+```bash
+ssh -p 2222 ubuntu@127.0.0.1 '
+pgrep -af "/guest/shm_agent/shm_agent" || true
+echo "-----"
+sudo tail -n 20 /tmp/shm_agent_ivshmem.log || true
+'
+```
+
+Check host-side sockets/files required for ivshmem contract runs:
+
+```bash
+cd ~/virtio-balloon
+ls -l "$HOME/virtio-balloon/logs/qmp.sock"
+ls -l /dev/shm/balloon_ivshmem.bin
+```
 
 ### Step B4: Run host-side full smoke (inflate + deflate) (Terminal B)
 
@@ -244,10 +276,7 @@ echo 1536 | sudo tee /sys/module/vballoon_lab/parameters/pressure_min_free_mb >/
 '
 ```
 
-### Step B5: Optional shared-memory contract logs (ivshmem mode only)
-
-Run this only if you booted with `./scripts/run_qemu_phase3_ivshmem.sh`.
-If you are on `run_qemu_phase2.sh`, skip this step.
+### Step B5: Shared-memory contract logs (required)
 
 ```bash
 cd ~/virtio-balloon
@@ -259,11 +288,19 @@ Expected patterns:
 - first run: `target=2147483648`
 - second run: `new target_bytes=3221225472`
 - both: `ack_seq=` present
+- `ack_seq` should catch up to `cmd_seq` during each run
 
 What this output means:
 - `cmd_seq` represents command publish by host.
 - `ack_seq` represents command acknowledgement by guest side.
 - matching progression shows command lifecycle is healthy.
+
+Add replay/no-op guard proof:
+
+```bash
+cd ~/virtio-balloon
+timeout 8s ./host/balloond/balloond 3221225472 "$HOME/virtio-balloon/logs/qmp.sock" < /dev/null 2>&1 | tee proofs/phaseB_replay_guard.log
+```
 
 ### Step B6: Memory-pressure behavior proof (Terminal B)
 
@@ -308,7 +345,6 @@ for f in \
   proofs/phaseB_replay_guard.log \
   proofs/phaseC_ivshmem_contract_run.log \
   proofs/phaseC_ivshmem_contract_run2.log \
-  proofs/phaseC_ivshmem_daemon_run.log \
   proofs/phaseD_pressure_run.log \
   proofs/phaseD_pressure_dmesg_fresh.log \
   proofs/phase3_pressure_run.log
@@ -343,8 +379,12 @@ If you see `QMP socket not found`:
 
 ```bash
 cd ~/virtio-balloon
-./scripts/run_qemu_phase2.sh
+./scripts/run_qemu_phase3_ivshmem.sh
 ```
+
+### ivshmem file missing on host (`/dev/shm/balloon_ivshmem.bin`)
+If this file is missing, QEMU is not running in ivshmem mode or exited unexpectedly.
+Restart from Step A1 and keep Terminal A open.
 
 ### smoke script stops after inflate
 This means pressure settings are too aggressive for convergence. Use:
@@ -358,12 +398,19 @@ echo 128 | sudo tee /sys/module/vballoon_lab/parameters/pressure_min_free_mb >/d
 
 Then rerun `./scripts/smoke_phase2.sh`.
 
-### `ack_seq` stays old (for example, remains `12`)
-If `ack_seq` does not advance in a run, usually one of these is true:
-- You are in `run_qemu_phase2.sh` mode (no ivshmem transport), so `shm_agent` is not relevant.
-- You are in ivshmem mode but `shm_agent` is not running.
+### `ack_seq` stays old (for example, remains `0` while `cmd_seq` increases)
+This means guest-side acknowledgement is not updating.
+Restart the shared-memory agent and rerun Step B5:
 
-For default smoke flow, ignore `shm_agent` and use temporary pressure disable/restore steps in **Step B4**.
+```bash
+ssh -p 2222 ubuntu@127.0.0.1 '
+sudo pkill -f "/guest/shm_agent/shm_agent" 2>/dev/null || true
+sudo nohup ~/virtio-balloon/guest/shm_agent/shm_agent >/tmp/shm_agent_ivshmem.log 2>&1 &
+sleep 1
+pgrep -af "/guest/shm_agent/shm_agent" || true
+sudo tail -n 20 /tmp/shm_agent_ivshmem.log || true
+'
+```
 
 ### Guest SSH password rejected
 Cloud-init default in this project is:
