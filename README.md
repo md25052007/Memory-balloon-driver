@@ -137,3 +137,5 @@ actual=2147483648 target=2147483648 cmd_seq=24 ack_seq=24 shm_status=0 shm_err=0
 ## License
 
 GPL-2.0. See [LICENSE](LICENSE). The kernel module declares `MODULE_LICENSE("GPL")`.
+
+<sub>AI coding assistance was used for parts of the implementation and documentation. Design decisions, testing and proof runs were done by me.</sub>
