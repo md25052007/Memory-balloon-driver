@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="${HOME}/virtio-balloon"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 QMP="${ROOT}/logs/qmp.sock"
 LOGI="/tmp/phase2_qmp_inflate.log"
 LOGD="/tmp/phase2_qmp_deflate.log"

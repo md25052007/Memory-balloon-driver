@@ -12,45 +12,18 @@ In the live demo, check these 5 checkpoints:
 4. Inflate and deflate both converge (`2 GiB` and `3 GiB`).
 5. Pressure-signal behavior appears in guest `dmesg` (`pressure deflate`).
 
-## 2. Important Path Requirement
+## 2. Where to Clone
 
-Scripts in this repo assume project path is:
-
-```bash
-~/virtio-balloon
-```
-
-So after extracting/cloning, place folder at that exact location.
-
-Mandatory check:
-
-```bash
-cd ~
-test -d ~/virtio-balloon && echo "OK: folder is in home" || echo "MOVE_REQUIRED"
-```
-
-If your folder is currently somewhere else, move it into home and rename it to `virtio-balloon`:
-
-```bash
-mv /path/to/your/current/folder ~/virtio-balloon
-```
-
-If you clone from GitHub and the default folder name is `Memory-balloon-driver`, do one of these:
-
-Option A (recommended): clone directly into the expected folder name
+The scripts locate the repository from their own path, so they work from any folder.
+This walkthrough uses `~/virtio-balloon` in its example commands, so cloning there
+lets you paste the commands as they are:
 
 ```bash
 cd ~
 git clone https://github.com/md25052007/Memory-balloon-driver.git virtio-balloon
 ```
 
-Option B: rename after cloning
-
-```bash
-cd ~
-git clone https://github.com/md25052007/Memory-balloon-driver.git
-mv Memory-balloon-driver virtio-balloon
-```
+If you clone somewhere else, replace `~/virtio-balloon` in the commands below with your path.
 
 ## 3. Environment Requirements (Host)
 

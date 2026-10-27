@@ -29,12 +29,12 @@ The demo proves:
 ## 3. Architecture Overview
 
 ## 3.1 Components
-- Host daemon: [host/balloond/src/main.c](host/balloond/src/main.c)
-- Host shared memory backend: [host/balloond/src/shm.c](host/balloond/src/shm.c)
-- Host QMP adapter: [host/balloond/src/qmp.c](host/balloond/src/qmp.c)
-- Guest kernel balloon module: [guest/vballoon_lab/vballoon_lab.c](guest/vballoon_lab/vballoon_lab.c)
-- Guest SHM bridge agent: [guest/shm_agent/main.c](guest/shm_agent/main.c)
-- Protocol contract: [docs/PROTOCOL.md](docs/PROTOCOL.md)
+- Host daemon: [host/balloond/src/main.c](../host/balloond/src/main.c)
+- Host shared memory backend: [host/balloond/src/shm.c](../host/balloond/src/shm.c)
+- Host QMP adapter: [host/balloond/src/qmp.c](../host/balloond/src/qmp.c)
+- Guest kernel balloon module: [guest/vballoon_lab/vballoon_lab.c](../guest/vballoon_lab/vballoon_lab.c)
+- Guest SHM bridge agent: [guest/shm_agent/main.c](../guest/shm_agent/main.c)
+- Protocol contract: [docs/PROTOCOL.md](PROTOCOL.md)
 
 ## 3.2 Data and control flow
 1. Host daemon publishes target and increments `cmd_seq` in shared memory.
@@ -65,7 +65,7 @@ Behavior guarantees used in validation:
 ## 5. Evidence and Outputs
 
 ## 5.1 Inflate proof (to 2 GiB)
-File: [proofs/phase2_qmp_inflate_ok.log](proofs/phase2_qmp_inflate_ok.log)
+File: [proofs/phase2_qmp_inflate_ok.log](../proofs/phase2_qmp_inflate_ok.log)
 
 Observed behavior:
 - Starts at `actual=3221225472`.
@@ -73,7 +73,7 @@ Observed behavior:
 - `ack_seq` reaches command sequence.
 
 ## 5.2 Deflate proof (to 3 GiB)
-File: [proofs/phase2_qmp_deflate_ok.log](proofs/phase2_qmp_deflate_ok.log)
+File: [proofs/phase2_qmp_deflate_ok.log](../proofs/phase2_qmp_deflate_ok.log)
 
 Observed behavior:
 - Starts near `actual=2147483648`.
@@ -81,7 +81,7 @@ Observed behavior:
 - `ack_seq` catches up.
 
 ## 5.3 Full smoke proof
-File: [proofs/phase3_pressure_run.log](proofs/phase3_pressure_run.log)
+File: [proofs/phase3_pressure_run.log](../proofs/phase3_pressure_run.log)
 
 Observed markers:
 - `BEGIN INFLATE LOG`
@@ -92,7 +92,7 @@ Interpretation:
 - end-to-end round trip (inflate then deflate) executed in one run.
 
 ## 5.4 Replay guard proof
-File: [proofs/phaseB_replay_guard.log](proofs/phaseB_replay_guard.log)
+File: [proofs/phaseB_replay_guard.log](../proofs/phaseB_replay_guard.log)
 
 Observed line:
 - `target unchanged and no pending cmd ..., skipping publish`
@@ -101,7 +101,7 @@ Interpretation:
 - replay/no-op guard is working.
 
 ## 5.5 ivshmem transport proof
-File: [proofs/phaseC_ivshmem_transport_ok.log](proofs/phaseC_ivshmem_transport_ok.log)
+File: [proofs/phaseC_ivshmem_transport_ok.log](../proofs/phaseC_ivshmem_transport_ok.log)
 
 Observed behavior:
 - host wrote marker `PHASEC_OK_1234`, guest read same bytes.
@@ -112,8 +112,8 @@ Interpretation:
 
 ## 5.6 Pressure proof
 Files:
-- [proofs/phaseD_pressure_run.log](proofs/phaseD_pressure_run.log)
-- [proofs/phaseD_pressure_dmesg_fresh.log](proofs/phaseD_pressure_dmesg_fresh.log)
+- [proofs/phaseD_pressure_run.log](../proofs/phaseD_pressure_run.log)
+- [proofs/phaseD_pressure_dmesg_fresh.log](../proofs/phaseD_pressure_dmesg_fresh.log)
 
 Observed behavior:
 - repeated guest `pressure deflate (free < 1536 MB)` lines.
@@ -154,12 +154,12 @@ Main future upgrades:
 
 ## 9. Reference Files
 
-- [README.md](README.md)
-- [docs/STATUS.md](docs/STATUS.md)
-- [docs/PROTOCOL.md](docs/PROTOCOL.md)
+- [README.md](../README.md)
+- [docs/STATUS.md](STATUS.md)
+- [docs/PROTOCOL.md](PROTOCOL.md)
 - [DEMO_DOCUMENTATION.md](DEMO_DOCUMENTATION.md)
 - [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)
-- [docs/QEMU_TEST_GUIDE.md](docs/QEMU_TEST_GUIDE.md)
+- [docs/QEMU_TEST_GUIDE.md](QEMU_TEST_GUIDE.md)
 
 
 

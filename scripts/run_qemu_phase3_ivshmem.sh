@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="${HOME}/virtio-balloon"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 IMG="${ROOT}/images/ubuntu-24.04-server-cloudimg-amd64.img"
 SEED="${ROOT}/images/seed.iso"
 QMP="${ROOT}/logs/qmp.sock"
